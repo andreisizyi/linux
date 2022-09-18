@@ -29,6 +29,8 @@ WantedBy=multi-user.target
 Проверям сервис
 sudo systemctl list-unit-files --type=service
 
+sudo systemctl daemon-reload
+sudo systemctl enable disk-space-check.service
 
 В sh файл закидываем
 
