@@ -1,5 +1,12 @@
 
 
+sudo iptables -L -nv --line-numbers
+iptables -A INPUT -s 176.36.200.211 -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -s 176.36.200.211 -p tcp --dport 443 -j ACCEPT
+iptables -A INPUT -p tcp --dport 80 -j DROP
+iptables -A INPUT -p tcp --dport 443 -j DROP
+iptables-save > /etc/network/iptables.up.rules
+iptables-apply
 
 
 
