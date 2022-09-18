@@ -1,3 +1,8 @@
+
+
+
+
+
 Создаем файл например /root/file.sh
 Создаем файл someservice.service в /etc/systemd/system
 Раздаем права 755 и 664
@@ -24,3 +29,8 @@ sudo systemctl list-unit-files --type=service
 
 iptables -I DOCKER-USER -p tcp --match multiport --dport 80,443 -j DROP
 iptables -I DOCKER-USER -p tcp -s 176.36.200.211,31.128.187.126 --match multiport --dport 80,443 -j ACCEPT
+
+
+
+iptables -I DOCKER-USER -p tcp ! -s 176.36.200.211  --match multiport --dport 80,443 -j DROP
+iptables -I INPUT -p tcp ! -s 176.36.200.211 multiport  --match multiport --dport 80,443 -j DROP
